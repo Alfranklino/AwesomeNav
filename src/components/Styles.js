@@ -8,10 +8,10 @@ const Styles = props => {
   async function loadFonts() {
     await Font.loadAsync(
       {
-        "Syncopate-Bold": require("./assets/fonts/Syncopate/Syncopate-Bold.ttf")
+        "Syncopate-Bold": require("../../assets/fonts/Syncopate/Syncopate-Bold.ttf")
       },
       {
-        "Syncopate-Regular": require("./assets/fonts/Syncopate/Syncopate-Regular.ttf")
+        "Syncopate-Regular": require("../../assets/fonts/Syncopate/Syncopate-Regular.ttf")
       },
       {},
       {}
