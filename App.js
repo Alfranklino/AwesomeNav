@@ -1,35 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import * as Font from "expo-font";
-import Styles from "./src/components/Styles";
+import { StyleSheet, View } from "react-native";
+// import * as Font from "expo-font";
+import { TextContent, TextTitle } from "./src/components/Styles";
 
 export default function App() {
-  const [fontLoaded, setFontLoaded] = useState(false);
-
-  async function loadFont() {
-    await Font.loadAsync(
-      {
-        "Syncopate-Bold": require("./assets/fonts/Syncopate/Syncopate-Bold.ttf")
-      },
-      {
-        "Syncopate-Regular": require("./assets/fonts/Syncopate/Syncopate-Regular.ttf")
-      }
-    );
-
-    setFontLoaded(true);
-  }
-
-  loadFont();
-
   return (
     <View style={styles.container}>
-      {fontLoaded ? (
-        <Text style={{ fontFamily: "Syncopate-Bold", fontSize: 30 }}>
-          AwesomeNav
-        </Text>
-      ) : (
-        <Text>Hum</Text>
-      )}
+      <TextTitle>Awesome Nav Is Here A title</TextTitle>
+      <TextContent>
+        Awesome Nav Is Here Voluptate aliqua ullamco qui pariatur eu dolore duis
+        voluptate. Reprehenderit deserunt adipisicing anim consectetur nisi id
+        amet. Labore anim sunt est anim veniam in dolor aliqua commodo qui
+        pariatur pariatur. Consequat esse occaecat est consequat sit.
+        Exercitation do incididunt amet consequat. Veniam cupidatat esse anim
+        sint. Aute consectetur qui labore laborum nulla nisi est veniam anim non
+        officia ex reprehenderit. Sit esse sunt deserunt ipsum ipsum irure.
+        Cupidatat fugiat in duis exercitation exercitation pariatur quis commodo
+        sit ut eu et non. Occaecat magna mollit nostrud do fugiat consectetur
+        qui. Sunt dolor aliqua ut qui consequat culpa est consectetur pariatur
+        irure ullamco aliquip et sit. Sint ex non esse mollit. Cupidatat
+        exercitation duis consequat ut aliquip aliquip amet id. Aliquip eu
+        eiusmod anim sunt sunt magna non culpa laborum et adipisicing
+        consectetur aliqua. Est mollit ipsum ullamco ex voluptate adipisicing
+        adipisicing.
+      </TextContent>
     </View>
   );
 }
