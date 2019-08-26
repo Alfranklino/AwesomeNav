@@ -1,31 +1,76 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
+import Icon from "react-native-vector-icons/SimpleLineIcons";
 // import * as Font from "expo-font";
 import { TextContent, TextTitle } from "./src/components/Styles";
+import {
+  createStackNavigator,
+  createAppContainer,
+  createBottomTabNavigator
+} from "react-navigation";
+import HomeScreen from "./src/screens/Home";
+import SettingsScreen from "./src/screens/Settings";
+import LikeScreen from "./src/screens/Like";
+import ProfileScreen from "./src/screens/Profile";
+
+const botTabNav = createBottomTabNavigator(
+  {
+    Home: {
+      screen: HomeScreen,
+      navigationOptions: {
+        tabBarLabel: "HOME",
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name="home" color={tintColor} size={24} />
+        )
+      }
+    },
+    Settings: {
+      screen: SettingsScreen,
+      navigationOptions: {
+        tabBarLabel: "SETTINGS",
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name="settings" color={tintColor} size={24} />
+        )
+      }
+    },
+    Like: {
+      screen: LikeScreen,
+      navigationOptions: {
+        tabBarLabel: "LIKE",
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name="heart" color={tintColor} size={24} />
+        )
+      }
+    },
+    Profile: {
+      screen: ProfileScreen,
+      navigationOptions: {
+        tabBarLabel: "PROFILE",
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name="user" color={tintColor} size={24} />
+        )
+      }
+    }
+  },
+  {
+    tabBarOptions: {
+      activeTintColor: "red",
+      inactiveTintColor: "grey",
+      style: {
+        backgroundColor: "white",
+        borderTopWidth: 0,
+        shadowOffset: { width: 5, height: 3 },
+        shadowColor: "black",
+        shadowOpacity: 0.5
+      }
+    }
+  }
+);
+
+const AppContainer = createAppContainer(botTabNav);
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <TextTitle>Awesome Nav Is Here A title</TextTitle>
-      <TextContent>
-        Awesome Nav Is Here Voluptate aliqua ullamco qui pariatur eu dolore duis
-        voluptate. Reprehenderit deserunt adipisicing anim consectetur nisi id
-        amet. Labore anim sunt est anim veniam in dolor aliqua commodo qui
-        pariatur pariatur. Consequat esse occaecat est consequat sit.
-        Exercitation do incididunt amet consequat. Veniam cupidatat esse anim
-        sint. Aute consectetur qui labore laborum nulla nisi est veniam anim non
-        officia ex reprehenderit. Sit esse sunt deserunt ipsum ipsum irure.
-        Cupidatat fugiat in duis exercitation exercitation pariatur quis commodo
-        sit ut eu et non. Occaecat magna mollit nostrud do fugiat consectetur
-        qui. Sunt dolor aliqua ut qui consequat culpa est consectetur pariatur
-        irure ullamco aliquip et sit. Sint ex non esse mollit. Cupidatat
-        exercitation duis consequat ut aliquip aliquip amet id. Aliquip eu
-        eiusmod anim sunt sunt magna non culpa laborum et adipisicing
-        consectetur aliqua. Est mollit ipsum ullamco ex voluptate adipisicing
-        adipisicing.
-      </TextContent>
-    </View>
-  );
+  return <AppContainer />;
 }
 
 const styles = StyleSheet.create({

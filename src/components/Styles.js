@@ -9,27 +9,36 @@ import * as Font from "expo-font";
 
 /* ======== TEXTs ======== */
 export const TextContent = props => {
-  return (
-    <Styles fontFamily="s_reg" style={{ fontSize: 13 }}>
-      {props.children}
-    </Styles>
+  const font = "s_reg";
+  const style = [props.style || [{ fontSize: 13 }]];
+  const allProps = Object.assign(
+    {},
+    props,
+    { fontFamily: font },
+    { style: style }
   );
+  return <Theme {...allProps}>{props.children}</Theme>;
 };
 
 export const TextTitle = props => {
-  return (
-    <Styles fontFamily="s_bold" style={[{ fontSize: 20 }, { color: "red" }]}>
-      {props.children}
-    </Styles>
+  const font = "s_bold";
+  const style = [props.style || [{ fontSize: 20 }, { color: "red" }]];
+  const allProps = Object.assign(
+    {},
+    props,
+    { fontFamily: font },
+    { style: style }
   );
+  return <Theme {...allProps}>{props.children}</Theme>;
 };
 
 /* ======== STYLES ======== */
 
-const Styles = props => {
+const Theme = props => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   // Only one Font.loadAsync per font.
+  //   For this part, Object.Assign can also work to apply an array or styles.
   async function loadFonts() {
     await Font.loadAsync({
       "Syncopate-Bold": require("../../assets/fonts/Syncopate/Syncopate-Bold.ttf")
@@ -61,7 +70,13 @@ const Styles = props => {
   const allProps = Object.assign({}, props, { style: style });
 
   return (
-    <View>
+    <View
+      style={[
+        { flex: 1 },
+        { justifyContent: "center" },
+        { alignItems: "center" }
+      ]}
+    >
       {fontsLoaded ? (
         <Text {...allProps}>{props.children}</Text>
       ) : (
