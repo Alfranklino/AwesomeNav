@@ -1,13 +1,11 @@
 import React from "react";
-import { View, ScrollView, Text, Image, StyleSheet } from "react-native";
+import { View, Text, ScrollView, Image, StyleSheet } from "react-native";
 import { TextContent, TextTitle } from "../components/Styles";
 
-const Settings = props => {
+const Like = () => {
   return (
     <View style={styles.container}>
-      <TextTitle style={[{ fontSize: 35 }, { color: "red" }]}>
-        Settings
-      </TextTitle>
+      <TextTitle style={[{ fontSize: 35 }, { color: "red" }]}>Like</TextTitle>
       <TextContent>
         Deserunt ea aliqua est qui ut officia est proident ut elit nulla sint
         adipisicing. Laborum do ex ad ut laboris.
@@ -25,4 +23,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Settings;
+export default Like;
